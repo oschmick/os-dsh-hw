@@ -68,7 +68,6 @@ char** findPath(char **cmd) {
     free(pathCopy);
     char **path = cmd;
     path[0] = foundPath;
-    //free(foundPath);
     return path;
 }
 
