@@ -89,7 +89,6 @@ void runCmd(char **cmd) {
         } else {
             char **path = findPath(cmd);
             forkAndRun(path);
-            //free(path);
         }
     }
 }
