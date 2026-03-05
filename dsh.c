@@ -17,8 +17,6 @@
 #include <string.h>
 #include <ctype.h>
 
-char *builtInCmds[] = {"exit", "pwd", "cd"};
-
 /**
  * Handle command logic
  *
@@ -61,6 +59,7 @@ char** findPath(char **cmd) {
         snprintf(fullPath, MAXPATH, "%s/%s", token, cmd[0]);
         if (access(fullPath, F_OK | X_OK) == 0) {
             foundPath = strdup(fullPath);
+            free(cmd[0]);
             break;
         }
         token = strtok(NULL, ":");

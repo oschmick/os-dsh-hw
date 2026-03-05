@@ -25,6 +25,10 @@ int main(int argc, char *argv[]) {
 	// DO NOT REMOVE THE BLOCK ABOVE THIS LINE //
 
 	char *cmdline = malloc(MAXBUF); // buffer to store user input from commmand line
+	if (cmdline == NULL) {
+		free(cmdline);
+		return 1;
+	}
 
 	while (1) {
 		printf("dsh> ");
