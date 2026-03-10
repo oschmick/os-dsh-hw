@@ -53,10 +53,12 @@ char** findPath(char **cmd) {
     char *pathCopy = strdup(pathVar);
     char *foundPath = cmd[0];
     char *token = strtok(pathCopy, ":");
-    char fullPath[MAXPATH];
+    char fullPath[MAXPATH]; 
 
     while (token != NULL) {
-        snprintf(fullPath, MAXPATH, "%s/%s", token, cmd[0]);
+        // char fullPath[strlen(token) + 1 + strlen(cmd[0]) + 1];
+        // sprintf(fullPath, "%s/%s", token, cmd[0]);
+        snprintf(fullPath, MAXPATH, "%s/%s", token, cmd[0]); // need to make sure to set last char to null terminator
         if (access(fullPath, F_OK | X_OK) == 0) {
             foundPath = strdup(fullPath);
             free(cmd[0]);
